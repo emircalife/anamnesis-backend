@@ -27,6 +27,9 @@ public class Cliente extends Pessoa{
 	private String endereco;
 	private String numero;
 	private String complemento;
+	private String bairro;
+	private String cidade;
+	private String UF;
 	private String cep;
 	private String telefone;
 	private String celular;
@@ -38,7 +41,8 @@ public class Cliente extends Pessoa{
 	}
 
 	public Cliente(Integer id, String nome, String cpf, String rg, LocalDate dataNascimento, String endereco, String numero,
-			String complemento, String cep, String telefone, String celular, String email, String senha, String pigmentoUsado) {
+			String complemento, String bairro, String cidade, String UF, String cep, String telefone, String celular, 
+			String email, String senha, String pigmentoUsado) {
 		super(id, nome, cpf, email, senha);
 		
 		this.rg = rg;
@@ -46,6 +50,9 @@ public class Cliente extends Pessoa{
 		this.endereco = endereco;
 		this.numero = numero;
 		this.complemento = complemento;
+		this.bairro = bairro;
+		this.cidade = cidade;
+		this.UF = UF;
 		this.cep = cep;
 		this.telefone = telefone;
 		this.celular = celular;
@@ -64,6 +71,9 @@ public class Cliente extends Pessoa{
 		this.endereco = objDTO.getEndereco();
 		this.numero = objDTO.getNumero();
 		this.complemento = objDTO.getComplemento();
+		this.bairro = objDTO.getBairro();
+		this.cidade = objDTO.getCidade();
+		this.UF = objDTO.getUF();
 		this.cep = objDTO.getCep();
 		this.telefone = objDTO.getTelefone();
 		this.celular = objDTO.getCelular();
@@ -106,6 +116,30 @@ public class Cliente extends Pessoa{
 		this.numero = numero;
 	}
 
+	public String getBairro() {
+		return bairro;
+	}
+
+	public void setBairro(String bairro) {
+		this.bairro = bairro;
+	}
+	
+	public String getCidade() {
+		return cidade;
+	}
+
+	public void setCidade(String cidade) {
+		this.cidade = bairro;
+	}
+	
+	public String getUF() {
+		return UF;
+	}
+
+	public void setUF(String UF) {
+		this.UF = UF;
+	}
+	
 	public String getComplemento() {
 		return complemento;
 	}

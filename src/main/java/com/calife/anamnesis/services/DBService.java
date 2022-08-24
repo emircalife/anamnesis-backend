@@ -37,7 +37,8 @@ public class DBService {
 		tec1.addPerfil(Perfil.ADMIN);
 		
 		Cliente cli1 = new Cliente(null, "Linus Torvalds", "16805083001", "4324060", LocalDate.now(), "Av. Sem rua", "111", 
-				"Complemento", "53030-030", "81999013765", "81999013765", "torvalds@mail.com", encoder.encode("123"), "laranja");
+				"Complemento", "Bairro", "Cidade", "UF", "53030-030", "81999013765", "81999013765", "torvalds@mail.com", 
+				encoder.encode("123"), "laranja");
 			
 		Chamado ch1 = new Chamado(null, Prioridade.MEDIA, Status.ANDAMENTO, "Chamado 01", "Primeiro chamado", tec1, cli1);
 		

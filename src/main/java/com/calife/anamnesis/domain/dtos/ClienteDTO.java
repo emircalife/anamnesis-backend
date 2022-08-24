@@ -34,6 +34,12 @@ public class ClienteDTO implements Serializable{
 	@NotNull(message = "Campo NÚMERO é requerido")
 	protected String numero;
 	protected String complemento;
+	@NotNull(message = "Campo BAIRRO é requerido")
+	protected String bairro;
+	@NotNull(message = "Campo CIDADE é requerido")
+	protected String cidade;
+	@NotNull(message = "Campo UF é requerido")
+	protected String UF;
 	protected String cep;
 	protected String telefone;
 	@NotNull(message = "Campo CELULAR é requerido")
@@ -59,8 +65,11 @@ public class ClienteDTO implements Serializable{
 		this.rg = oldObj.getRg();
 		this.dataNascimento = oldObj.getDataNascimento();
 		this.endereco = oldObj.getEndereco();
-		this.numero = oldObj.getNumero();
 		this.complemento = oldObj.getComplemento();
+		this.numero = oldObj.getNumero();
+		this.bairro = oldObj.getBairro();
+		this.cidade = oldObj.getCidade();
+		this.UF = oldObj.getUF();
 		this.cep = oldObj.getCep();
 		this.telefone = oldObj.getTelefone();
 		this.celular = oldObj.getCelular();
@@ -168,6 +177,30 @@ public class ClienteDTO implements Serializable{
 		this.complemento = complemento;
 	}
 
+	public void setBairro(String bairro) {
+		this.bairro = bairro;
+	}
+
+	public String getBairro() {
+		return bairro;
+	}
+
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
+	}
+
+	public String getCidade() {
+		return cidade;
+	}
+		
+	public void setUF(String UF) {
+		this.UF = UF;
+	}
+
+	public String getUF() {
+		return UF;
+	}
+	
 	public String getCep() {
 		return cep;
 	}
