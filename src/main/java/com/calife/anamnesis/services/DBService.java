@@ -1,5 +1,6 @@
 package com.calife.anamnesis.services;
 
+import java.time.LocalDate;
 import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,8 +36,9 @@ public class DBService {
 		Tecnico tec1 = new Tecnico(null, "Emir Calife", "02159070432", "emircalife@gmail.com", encoder.encode("123"));
 		tec1.addPerfil(Perfil.ADMIN);
 		
-		Cliente cli1 = new Cliente(null, "Linus Torvalds", "16805083001", "torvalds@mail.com", encoder.encode("123"));
-		
+		Cliente cli1 = new Cliente(null, "Linus Torvalds", "16805083001", "4324060", LocalDate.now(), "Av. Sem rua", "111", 
+				"Complemento", "53030-030", "81999013765", "81999013765", "torvalds@mail.com", encoder.encode("123"), "laranja");
+			
 		Chamado ch1 = new Chamado(null, Prioridade.MEDIA, Status.ANDAMENTO, "Chamado 01", "Primeiro chamado", tec1, cli1);
 		
 		tecnicoRepository.saveAll(Arrays.asList(tec1));

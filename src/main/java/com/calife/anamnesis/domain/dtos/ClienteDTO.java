@@ -25,6 +25,23 @@ public class ClienteDTO implements Serializable{
 	@NotNull(message = "Campo SENHA é requerido")
 	protected String senha;
 	protected Set<Integer> perfis = new HashSet<>();
+	@NotNull(message = "Campo RG é requerido")
+	protected String rg;
+	@NotNull(message = "Campo DATA DE NASCIMENTO é requerido")
+	protected LocalDate dataNascimento;
+	@NotNull(message = "Campo ENDEREÇO é requerido")
+	protected String endereco;
+	@NotNull(message = "Campo NÚMERO é requerido")
+	protected String numero;
+	protected String complemento;
+	protected String cep;
+	protected String telefone;
+	@NotNull(message = "Campo CELULAR é requerido")
+	protected String celular;
+	@NotNull(message = "Campo PIGMENTO USADO é requerido")
+	protected String pigmentoUsado;
+	
+	
 	
 	@JsonFormat(pattern = "dd/MM/yyyy")
 	protected LocalDate dataCriacao = LocalDate.now();
@@ -39,6 +56,15 @@ public class ClienteDTO implements Serializable{
 		this.id = oldObj.getId();
 		this.nome = oldObj.getNome();
 		this.cpf = oldObj.getCpf();
+		this.rg = oldObj.getRg();
+		this.dataNascimento = oldObj.getDataNascimento();
+		this.endereco = oldObj.getEndereco();
+		this.numero = oldObj.getNumero();
+		this.complemento = oldObj.getComplemento();
+		this.cep = oldObj.getCep();
+		this.telefone = oldObj.getTelefone();
+		this.celular = oldObj.getCelular();
+		this.pigmentoUsado = oldObj.getPigmentoUsado();
 		this.email = oldObj.getEmail();
 		this.senha = oldObj.getSenha();
 		this.perfis = oldObj.getPerfis().stream().map(x -> x.getCodigo()).collect(Collectors.toSet());
@@ -101,5 +127,80 @@ public class ClienteDTO implements Serializable{
 	public void setDataCriacao(LocalDate dataCriacao) {
 		this.dataCriacao = dataCriacao;
 	}
-	
+
+	public String getRg() {
+		return rg;
+	}
+
+	public void setRg(String rg) {
+		this.rg = rg;
+	}
+
+	public LocalDate getDataNascimento() {
+		return dataNascimento;
+	}
+
+	public void setDataNascimento(LocalDate dataNascimento) {
+		this.dataNascimento = dataNascimento;
+	}
+
+	public String getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
+	}
+
+	public String getNumero() {
+		return numero;
+	}
+
+	public void setNumero(String numero) {
+		this.numero = numero;
+	}
+
+	public String getComplemento() {
+		return complemento;
+	}
+
+	public void setComplemento(String complemento) {
+		this.complemento = complemento;
+	}
+
+	public String getCep() {
+		return cep;
+	}
+
+	public void setCep(String cep) {
+		this.cep = cep;
+	}
+
+	public String getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
+
+	public String getCelular() {
+		return celular;
+	}
+
+	public void setCelular(String celular) {
+		this.celular = celular;
+	}
+
+	public String getPigmentoUsado() {
+		return pigmentoUsado;
+	}
+
+	public void setPigmentoUsado(String pigmentoUsado) {
+		this.pigmentoUsado = pigmentoUsado;
+	}
+
+	public void setPerfis(Set<Integer> perfis) {
+		this.perfis = perfis;
+	}
 }
