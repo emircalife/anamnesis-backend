@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import com.calife.anamnesis.domain.dtos.TecnicoDTO;
@@ -19,14 +21,20 @@ public class Tecnico extends Pessoa{
 	@OneToMany(mappedBy = "tecnico")
 	private List<Chamado> chamados = new ArrayList<>();
 
+	@ManyToOne
+	@JoinColumn(name = "especialidade_id")
+	private List<Especialidade> especialidade = new ArrayList<>();
+	
 	public Tecnico() {
 		super();
 		addPerfil(Perfil.TECNICO);
 	}
 
-	public Tecnico(Integer id, String nome, String cpf, String email, String senha) {
+	public Tecnico(Integer id, String nome, String cpf, String email, String senha, List<Especialidade> especialidade) {
 		super(id, nome, cpf, email, senha);
 		addPerfil(Perfil.TECNICO);
+		
+		this.especialidade = especialidade;
 	}
 
 	public Tecnico(TecnicoDTO tecnico) {
@@ -38,6 +46,7 @@ public class Tecnico extends Pessoa{
 		this.senha = tecnico.getSenha();
 		this.perfis = tecnico.getPerfis().stream().map(x -> x.getCodigo()).collect(Collectors.toSet());
 		this.dataCriacao = tecnico.getDataCriacao();
+		this.especialidade = tecnico.getEspecialidade();
 	}
 	
 	public List<Chamado> getChamados() {
@@ -48,4 +57,11 @@ public class Tecnico extends Pessoa{
 		this.chamados = chamados;
 	}
 	
+	public List<Especialidade> getEspecialidade() {
+		return especialidade;
+	}
+
+	public void setEspecialidade(List<Especialidade> especialidade) {
+		this.especialidade = especialidade;
+	}	
 }

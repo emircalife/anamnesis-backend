@@ -1,10 +1,10 @@
-package com.calife.helpdesk;
+package com.calife.anamnese;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class HelpdeskApplicationTests {
+class AnamneseApplicationTests {
 
 	@Test
 	void contextLoads() {

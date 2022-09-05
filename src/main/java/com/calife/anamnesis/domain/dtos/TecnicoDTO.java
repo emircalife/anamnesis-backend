@@ -3,11 +3,13 @@ package com.calife.anamnesis.domain.dtos;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
 import javax.validation.constraints.NotNull;
 
+import com.calife.anamnesis.domain.Especialidade;
 import com.calife.anamnesis.domain.Tecnico;
 import com.calife.anamnesis.domain.enums.Perfil;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -29,6 +31,8 @@ public class TecnicoDTO implements Serializable{
 	@JsonFormat(pattern = "dd/MM/yyyy")
 	protected LocalDate dataCriacao = LocalDate.now();
 
+	protected List<Especialidade> especialidade;
+	
 	public TecnicoDTO() {
 		super();
 		addPerfis(Perfil.CLIENTE);
@@ -43,6 +47,7 @@ public class TecnicoDTO implements Serializable{
 		this.senha = tecnico.getSenha();
 		this.perfis = tecnico.getPerfis().stream().map(x -> x.getCodigo()).collect(Collectors.toSet());
 		this.dataCriacao = tecnico.getDataCriacao();
+		this.especialidade = tecnico.getEspecialidade();
 		addPerfis(Perfil.CLIENTE);
 	}
 
@@ -101,5 +106,12 @@ public class TecnicoDTO implements Serializable{
 	public void setDataCriacao(LocalDate dataCriacao) {
 		this.dataCriacao = dataCriacao;
 	}
-	
+
+	public List<Especialidade> getEspecialidade() {
+		return especialidade;
+	}
+
+	public void setEspecialidade(List<Especialidade> especialidade) {
+		this.especialidade = especialidade;
+	}
 }
